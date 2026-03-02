@@ -1,0 +1,96 @@
+{
+  "name": "vscode-immersive-translate-plugin",
+  "displayName": "VSCode Immersive Translate Plugin",
+  "icon": "assets/icon.png",
+  "description": "Translate text using Google, Bing, OpenAI, or Gemini, displayed inline or side-by-side.",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "vscode-immersive-translate-plugin.translateToSlide",
+        "title": "Immersive Translate: View Translate to the Slide"
+      },
+      {
+        "command": "vscode-immersive-translate-plugin.translateToSlideOnlyTarget",
+        "title": "Immersive Translate: View Translate to the Slide (Only Target)"
+      },
+      {
+        "command": "vscode-immersive-translate-plugin.translateImmersive",
+        "title": "Immersive Translate: View Translate Immersive"
+      },
+      {
+        "command": "vscode-immersive-translate-plugin.closeTranslateImmersive",
+        "title": "Immersive Translate: Close Translate Immersive"
+      }
+    ],
+    "configuration": {
+      "title": "VSCode Immersive Translate Plugin",
+      "properties": {
+        "vscode-immersive-translate-plugin.apiProvider": {
+          "type": "string",
+          "default": "google-free",
+"enum": [
+"google-free",
+"bing-free",
+"google",
+"bing",
+"openai",
+            "gemini",
+            "deepseek"
+],
+"enumDescriptions": [
+"Google Translate (Free, no API key required)",
+"Bing Translate (Free, no API key required)",
+"Google Cloud Translation API (Requires API key)",
+"Microsoft Azure Translator API (Requires API key)",
+"OpenAI GPT API (Requires API key)",
+            "Google Gemini API (Requires API key)",
+            "DeepSeek API (Requires API key)"
+],
+          "description": "Select the translation API provider."
+        },
+        "vscode-immersive-translate-plugin.apiKey": {
+          "type": "string",
+          "default": "",
+          "description": "API Key for OpenAI, Gemini, DeepSeek, Google, or Bing (when using paid APIs)."
+        },
+        "vscode-immersive-translate-plugin.sourceLanguage": {
+          "type": "string",
+          "default": "en",
+          "description": "Source language code (e.g., 'en', 'auto')."
+        },
+        "vscode-immersive-translate-plugin.targetLanguage": {
+          "type": "string",
+          "default": "zh-CN",
+          "description": "Target language code (e.g., 'zh-CN', 'en')."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src --ext ts"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.80.0",
+    "@types/node": "18.x",
+    "typescript": "^5.1.3",
+    "@typescript-eslint/eslint-plugin": "^5.59.8",
+    "@typescript-eslint/parser": "^5.59.8",
+    "eslint": "^8.41.0"
+  },
+  "dependencies": {
+    "axios": "^1.6.2"
+  }
+}
