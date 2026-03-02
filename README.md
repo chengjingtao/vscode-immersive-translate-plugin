@@ -18,6 +18,22 @@ A VS Code extension for code/text translation with both slide view and immersive
   - Side-by-side slide view (Only Target, full translated text only)
   - Immersive inline view in editor
 
+### Feature Overview
+**command list**
+![command list](./images/commands.png)
+
+**translate in-line**
+![view inline](./images/inline.png)
+
+**translate in slide**
+![view in slide](./images/slide.png)
+
+**translate in slide only target**
+![view in slide only target](./images/slide-only-target.png)
+
+**configuration**
+![configuration](./images/config.png)
+
 ## Commands
 
 Open Command Palette and run:
@@ -60,7 +76,3 @@ npm run compile
 ```bash
 npx @vscode/vsce package
 ```
-
-The generated package file is:
-
-- `vscode-immersive-translate-plugin-0.0.1.vsix`
